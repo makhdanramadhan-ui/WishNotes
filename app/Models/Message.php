@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Message extends Model
 {
-    protected $fillable = ['wishnote_id', 'user_id', 'body'];
+    protected $fillable = ['wishnote_id', 'user_id', 'body', 'display_name', 'ornament', 'x', 'y'];
 
     public function wishnote()
     {

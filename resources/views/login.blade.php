@@ -159,14 +159,11 @@
             <form id="loginForm" method="POST" action="{{ route('login.store')}}">
                 @csrf
                 <div class="mb-3 text-start">
-                    <input type="email" class="form-control" id="email" placeholder="Email"  name="email" required>
+                    <input type="email" class="form-control" id="email" aria-label="Email" placeholder="Email" name="email" value="{{ old('email') }}" autocomplete="email" required>
                 </div>
 
                 <div class="mb-3 text-start position-relative">
-                    <input type="password" class="form-control" id="password" placeholder="Password" name="password" required>
-                    <span class="input-group-text" id="togglePassword">
-                        <i class="fa-regular fa-eye-slash"></i>
-                    </span>
+                    <input type="password" class="form-control" id="password" aria-label="Kata sandi" placeholder="Kata sandi" name="password" autocomplete="current-password" required>
                 </div>
 
                 <button type="submit" class="btn btn-wish" id="btnLogin">
@@ -176,47 +173,10 @@
 
             <div class="divider">ATAU</div>
 
-            <!-- Tombol Guest -->
-            <a href="dashboard" class="btn btn-guest" id="btnGuest">
-                <i class="fa-solid fa-user-astronaut me-2"></i> Masuk sebagai Tamu
-            </a>
-
-            <a href="register" class="btn btn-guest" id="btnGuest">
+            <a href="{{ route('register') }}" class="btn btn-guest">
                 <i class="fa-solid fa-user-astronaut me-2"></i> Buat Akun Baru
             </a>
-
-            <div class="mt-4">
-                <a href="lupapw" class="text-muted text-decoration-none small">Lupa Password?</a>
-            </div>
         </div>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- <script>
-        $(document).ready(function() {
-            // Show/Hide Password
-            $('#togglePassword').click(function() {
-                let input = $('#password');
-                let icon = $(this).find('i');
-                if (input.attr('type') === 'password') {
-                    input.attr('type', 'text');
-                    icon.removeClass('fa-eye-slash').addClass('fa-eye');
-                } else {
-                    input.attr('type', 'password');
-                    icon.removeClass('fa-eye').addClass('fa-eye-slash');
-                }
-            });
-
-            // Login Logic
-            $('#loginForm').submit(function(e) {
-            e.preventDefault();
-                let btn = $('#btnLogin');
-                btn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin"></i> Loading...');
-                setTimeout(() => window.location.href = "dashboard", 1500);
-            });
-        });
-    </script> -->
 </body>
 </html>

@@ -201,22 +201,19 @@
             <!-- Nama Lengkap -->
             <div class="input-group">
                 <span class="input-icon"><i class="fa-regular fa-user"></i></span>
-                <input type="text" class="form-control" id="name" placeholder="Nama Lengkap" name="name" required>
+                <input type="text" class="form-control" id="name" aria-label="Nama lengkap" placeholder="Nama lengkap" name="name" value="{{ old('name') }}" autocomplete="name" required>
             </div>
 
             <!-- Email -->
             <div class="input-group">
                 <span class="input-icon"><i class="fa-regular fa-envelope"></i></span>
-                <input type="email" class="form-control" id="email" placeholder="Alamat Email" name="email" required>
+                <input type="email" class="form-control" id="email" aria-label="Email" placeholder="Alamat email" name="email" value="{{ old('email') }}" autocomplete="email" required>
             </div>
 
             <!-- Password -->
             <div class="input-group position-relative">
                 <span class="input-icon"><i class="fa-solid fa-lock"></i></span>
-                <input type="password" class="form-control" id="password" placeholder="Buat Password" name="password" required>
-                <span class="input-group-text-toggle" id="togglePassword">
-                    <i class="fa-regular fa-eye-slash"></i>
-                </span>
+                <input type="password" class="form-control" id="password" aria-label="Kata sandi" placeholder="Kata sandi (minimal 8 karakter)" name="password" autocomplete="new-password" minlength="8" required>
             </div>
 
             <button type="submit" class="btn btn-wish" id="btnRegister">
@@ -227,48 +224,9 @@
         <div class="divider">SUDAH PUNYA AKUN?</div>
 
         <!-- Tombol ke Login -->
-        <a href="login" class="btn-link-custom" id="btnLogin">
+        <a href="{{ route('login') }}" class="btn-link-custom" id="btnLogin">
             Masuk Disini
         </a>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<!--    
-    <script>
-        $(document).ready(function() {
-            // Show/Hide Password
-            $('#togglePassword').click(function() {
-                let input = $('#password');
-                let icon = $(this).find('i');
-                if (input.attr('type') === 'password') {
-                    input.attr('type', 'text');
-                    icon.removeClass('fa-eye-slash').addClass('fa-eye');
-                } else {
-                    input.attr('type', 'password');
-                    icon.removeClass('fa-eye').addClass('fa-eye-slash');
-                }
-            });
-
-            // Register Logic
-            $('#registerForm').submit(function(e) {
-                e.preventDefault();
-                let btn = $('#btnRegister');
-                let originalText = btn.html();
-                
-                // Animasi Loading
-                btn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin"></i> Memproses...');
-                
-                // Simulasi API call
-                setTimeout(() => {
-                    let name = $('#fullname').val();
-                    alert(`Selamat datang, ${name}! Akun Anda berhasil dibuat.`);
-                    btn.prop('disabled', false).html(originalText);
-                    // Reset form
-                    $('#registerForm')[0].reset();
-                }, 1500);
-            });
-        });
-    </script> -->
 </body>
 </html>
